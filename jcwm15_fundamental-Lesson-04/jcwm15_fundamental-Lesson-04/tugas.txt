@@ -1,0 +1,10 @@
+1. buat aplikasi minta input bulan => output tampilkan season/musim berdarkan bulan
+    // musim semi, gugur, panas, dingin
+    // check input => tdk boleh kosong, tidak boleh -, tidak boleh > 12
+    // dll
+2. buat program untuk menampilkan deret fibonanci, dimulai dari 0 - 25
+    // 0, 1, 1, 2, 3, 5, 8, 13, ...
+3. buat program untuk menampilkan angka genap dan angka ganjil, dari 0 - 25
+4. buat program untuk melipat gandakan string
+    // input : hello & 4
+    // output : hello, hello, hello, hello

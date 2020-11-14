@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Market v1.1</title>
+    </head>
+    <body></body>
+    <script>
+        // define harga produk
+        let hargaApple = 10000
+        let hargaOrange = 15000
+        let hargaGrape = 20000
+
+        // define stock masing-masing produk
+        let stockApple = 10
+        let stockOrange = 10
+        let stockGrape = 10
+
+        // define variable untuk menampung input dari user
+        // NOTE : prompt akan menghasilkan value dengan tipe data string
+        // prompt kalau misalkan kosong / tidak diisi value = null
+       
+        // Apple
+        let x = 0
+        do{
+            let apple = parseInt( prompt("Masukan total apple 🍎 yang ingin anda beli!"))
+
+            if (apple > stockApple) {
+                alert ("Pembelian apple🍎 melebihi stock toko ! Mohon masukan ulang") 
+            } else if(stockApple >= apple) {
+                stockApple -= apple
+                alert ("Pembelian Apel Berhasil")
+                x = 1
+            }
+        }while (x == 0);
+        
+        let y = 0
+        do{
+            let orange = parseInt( prompt("Masukan total orange 🍊 yang ingin anda beli!"))
+
+            if (orange > stockOrange) {
+                alert ("Pembelian orange🍊 melebihi stock toko ! Mohon masukan ulang") 
+            } else if (stockOrange >= orange) {
+                stockOrange -= orange
+                alert ("Pembelian Orange Berhasil")
+                y = 1
+            }
+        }while (y == 0);
+
+        let z = 0
+        do{
+            let grape = parseInt( prompt("Masukan total grape 🍇 yang ingin anda beli!"))
+
+            if (grape > stockGrape) {
+                alert ("Pembelian grape🍇 melebihi stock toko ! Mohon masukan ulang") 
+            } else if (stockGrape >= grape) {
+                stockGrape -= grape
+                alert ("Pembelian Grape Berhasil")
+                z = 1
+            }
+        }while (z == 0);
+
+            
+        // buat check input
+        // pastikan user tidak input kosong = null
+        // kalau input > stok : alert melebihi stok, then set input = 0
+
+
+        
+        // calculate total
+        let totalBeliApple = apple * hargaApple
+        let totalBeliOrange = orange * hargaOrange
+        let totalBeliGrape = grape * hargaGrape
+        let totalBelanja = totalBeliApple + totalBeliOrange + totalBeliGrape
+
+        // tampilkan output : detail belanja
+        alert(`
+            Detail belanja
+            Total apple 🍏 : ${apple} buah x ${hargaApple} = ${totalBeliApple}
+            Total orange 🍊 : ${orange} buah x ${hargaOrange} = ${totalBeliOrange}
+            Total grape 🍇 : ${grape} buah x ${hargaGrape} = ${totalBeliGrape}
+            Total Belanja : ${totalBelanja}
+            Stock 🍎 Tersisa = ${stockApple}
+            Stock 🍊 Tersisa = ${stockOrange}
+            Stock 🍇 Tersisa = ${stockGrape}
+        `)
+    </script>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Problem Set 4</title>
+    </head>
+    <body></body>
+    <script>
+        // CASE #1
+        // ask user input using prompt 
+        // => data types from prompt is STRING if it has a value
+        // => no value => value = null
+        // let number = parseInt(prompt("Masukan angka berapapun :"))
+
+        // calculate power
+        // alert(`Kuadrat dari ${number} adalah ${Math.pow(number, 2)}`)
+
+        while (true) {
+            // CASE #2 : tembak angka, rentang 1 - 10, 10 termasuk
+            // generate random number
+            let number = Math.floor(Math.random() * 10) + 1
+    
+            // ask user input
+            let userNumber = parseInt(prompt(`TEBAK ANGKA : MASUKAN ANGKA DARI 1 - 10`))
+    
+            // check angka
+            if (number === userNumber) {
+                alert("HORE, ANDA BENAR! 🎉🎈🎈🎈")
+            } else if (isNaN(userNumber) || userNumber <= 0) { // check user input
+                alert("NOMOR YANG ANDA MASUKAN SALAH! 😒")
+            } else if (userNumber > 10) {
+                alert("HELLO, ANGKA TELALU BESAR 😂")
+            } else {
+                alert(`ANDA SEDANG APES 😭, JAWABAN : ${number}`)
+            }
+    
+            // ask user confirmation : play again ?
+            let userConfirm = confirm("MAU MAIN LAGI 🎮 ?") // true or false
+            if (userConfirm === false) {
+                break // berhenti looping
+            }
+        }
+        </script>
+</html>

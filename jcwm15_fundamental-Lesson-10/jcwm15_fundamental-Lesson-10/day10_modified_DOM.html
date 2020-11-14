@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Modified DOM</title>
+    </head>
+    <body>
+        <div class="new-container">
+            <h1>new container</h1>
+        </div>
+        <h1>Introduction</h1>
+        <h2>My name is Liem Cu Sun</h2>
+        <p>i love playing a game and codding</p>
+        <p>i studied javascript in Purwadhika</p>
+
+        <div id="container">
+            <h1>container</h1>
+        </div>
+    </body>
+    <script>
+        // ACCESS DOM => 
+        // NAVIGATE (NODES & ELEMENT)
+        // SEARCHING => documentGetElement*sBy* => tagName, Class, or Id
+
+        // MODIFIKASI DOM
+        // 1# CONTENT => textContent, text yang ada di dalam <tag> HTML
+        let h1 = document.body.firstElementChild
+        console.log("tag", h1)
+        console.log("text content : ", h1.textContent)
+
+        // .textContent akan mengkonversi text yang ada didalam <tag>
+        // menjadi string di js => artinya kita bisa modif
+        h1.textContent = "Perkenalan"
+
+
+        // modified element h2
+        let h2 = h1.nextElementSibling
+        h2.textContent = "Nama saya Liem Cu Sun"
+
+        // modified first p element using searching
+        let paragraphs = document.body.getElementsByTagName("p")
+        console.log(paragraphs)
+        console.log(paragraphs[0])
+
+        paragraphs[0].textContent = "saya suka makan"
+
+        // 2# STUCTURE => menambahkan element atau mengurangi element
+        // .innerHTML & .append()
+
+        // # .innerHTML
+        // overwrite element
+        let body = document.body
+        console.log("InnerHTML : ", body.innerHTML)
+
+        // body.innerHTML = "<h1>Hello JavaScript</h1>"
+        // .innerHTMl akan mengkonversi semual element menjadi string
+        // artinya kita bisa modifikasi di js dengan menganggapnya sebagai
+        // string bisa
+
+        // add new element => dimasukan di paling akhir
+        body.innerHTML += "<h1>Element Baru </h1>"
+        body.innerHTML += `<div>Element baru pakai div</div>`
+
+        // hapus semua element di body
+        // body.innerHTML = ""
+
+        // .append() => untuk menbahkan element baru
+        // sebelum menambahkan element baru => kita perlu bikin elementnya
+        let elementBaru = document.createElement("h1") // <h1></h1>
+        elementBaru.textContent = "ini dibuat menggunakan create-element"
+
+        // masukan element yang sudah dibuat kedalam <tag> yang diinginkan
+        document.body.append(elementBaru)
+        // by default => element baru akan diletakkan di akhir => append()
+
+        let divBaru = document.createElement("div") // <div></div>
+        divBaru.textContent = "div baru pakai create element" 
+        // <div>div baru pakai create element</div>
+        divBaru.id = "div-baru"
+        // <div id="div-baru">div baru pakai create element</div>
+
+        document.body.append(divBaru)
+
+
+        // add new elemnt inside element with id = container
+        let p = document.createElement("p")
+        p.textContent = "paragraph baru banget dibikin"
+
+        document.getElementById("container").append(p)
+        
+        // cara untuk memasukan element di tengah2 (bukan diawal / akhir)
+        let p2 = document.createElement("p")
+        p2.textContent = "javascript asik sekali"
+        
+        document.getElementById("container").prepend(p2) // ditelatakan di paling awal
+        // document.getElementById("container").append(p) // ditelakkan di akhir
+
+        // before() & after()
+        let p3 = document.createElement("p")
+        p3.textContent = "saya suka codding"
+
+        document.getElementById("container").before(p3)
+
+        let p4 = document.createElement("p")
+        p4.textContent = "saya sekolah di purwadhika"
+
+        document.getElementById("container").after(p4)
+
+        // add new element between h1 dan h2 in the body document
+        let div = document.createElement("div")
+        div.innerHTML = `<h1>Hello World</h1>`
+
+        document.body.firstElementChild.after(div)
+
+        // add new element using insertAdjacentHTML()
+        let newContainer = document.body.getElementsByClassName("new-container")
+        console.log(newContainer)
+
+        newContainer[0].insertAdjacentHTML("afterbegin", `<h3>hello dunia</h3>`)
+        newContainer[0].insertAdjacentHTML("beforeend", '<p>Hallo</p>')
+
+        // 3# STYLE 
+        let headings = document.getElementsByTagName("h1")
+        console.log(headings)
+
+        let odading = headings[1]
+
+        odading.style.color = "red"
+        odading.style.fontSize = "64px"
+        odading.style.textAlign = "center"
+        odading.style.backgroundColor = "black"
+        document.body.style.backgroundColor = "pink"
+
+        // hidden element => cara untuk hidden / menyembunyikan element
+        // odading.style.display = "none"
+        // odading.hidden = true
+    </script>
+</html>

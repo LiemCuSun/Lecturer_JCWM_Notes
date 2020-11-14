@@ -1,0 +1,16 @@
+- bikin kalkulator sederhana untuk konversi mata uang
+    => input : jumlah uang & jenis mata uang (select option)
+    => konversi kemana => IDR, USD, WON
+    => output => uang hasil konversi
+    // REF : https://developer.mozilla.org/en-US/docs/Web/HTML/Element/select
+- bikin aplikasi countdown => hitung mundur
+    => input : masukan angka : 10 => button start
+    => output : hitung mundur dari 10 -> 0
+    // HINT : setInterval
+    // REF : https://stackoverflow.com/questions/109086/stop-setinterval-call-in-javascript
+- (OPTIONAL) => tampilkan pattern di HTML => n = 5
+// *
+// **
+// ***
+// ****
+// *****

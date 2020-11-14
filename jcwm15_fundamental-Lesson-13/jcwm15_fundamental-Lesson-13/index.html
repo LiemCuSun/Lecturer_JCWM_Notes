@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CONVERSION</title>
+    </head>
+    <body>
+        <h1>Konversi mata uang</h1>
+        <form>
+            <input type="number" id="uang" placeholder="masukan jumlah uang">
+            <select>
+                <option value="USD">USD</option>
+                <option value="IDR">IDR</option>
+            </select>
+            Konversi ke : 
+            <select>
+                <option value="USD">USD</option>
+                <option value="IDR">IDR</option>
+            </select>
+        </form>
+        <br>
+        <button onclick="OnButtonKonvert()">Konvert</button>
+        <h1 id="output">Output : </h1>
+    </body>
+    <script>
+        // database untuk menyimpan rate konversi mata uang
+        let data = [
+            {
+                ori : "USD",
+                to : "IDR",
+                rate : 14112.55
+            },
+            {
+                ori : "IDR",
+                to : "USD",
+                rate : 0.00007
+            }
+        ]
+
+        // add event listener
+        function OnButtonKonvert () {
+            console.log("button konver di klik")
+
+            // get value from input & select
+            let form = document.forms[0] // HTML Collection
+            console.log(form)
+            let select = form.getElementsByTagName("select")
+            console.log(select)
+
+            // get value from <input>
+            let uang = parseInt(form["uang"].value)
+            console.log(uang)
+
+            // get value from <select>
+            let jenisMataUangAsli = select[0].value
+            console.log(jenisMataUangAsli)
+
+            let konvertKeMataUang = select[1].value
+            console.log(konvertKeMataUang)
+
+            // lakukan konversi
+            // check apakah user memilih konversi ke mata uang yang sama
+            let result
+            if (jenisMataUangAsli === konvertKeMataUang) {
+                result = uang
+            } else {
+                for (let i = 0; i < data.length; i++) {
+                    if (data[i].ori === jenisMataUangAsli && data[i].to === konvertKeMataUang) {
+                        result = uang * data[i].rate
+                    }
+                }
+            }
+            console.log(result)
+            console.log(result.toExponential())
+            
+            // tampilkan ke HTML
+            document.getElementById("output").textContent = `Output : ${result.toFixed(3)}`
+        }
+    </script>
+</html>

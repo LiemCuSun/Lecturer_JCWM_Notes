@@ -1,0 +1,11 @@
+tugas day 07 :
+- buatlah sebuah fungsi untuk menghitung huruf vocal => return total huruf vocal
+    - countVocal("Purwadhika") // 3 => u, a, i
+    - countVocal("javascript") // 2 => a, i
+- buatlah sebuah fucntion untuk menghapus huruf vocal
+    - removeVocal("reactjs") // "rctjs"
+    - removeVocal("hello") // "hll"
+- buatlah fungsi untuk alternating case 
+    - input : "heLLO wOlRd" => output : "HEllo WoLrD"
+- buatlah fungsi untuk menghitung duplicate charcter di dalam sebuah string
+    - input : "i love javascrpt" => output : 2 => ada 2 huruf yg duplicate "a, v"

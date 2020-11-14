@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Input Value</title>
+    </head>
+    <body>
+        <h1>INPUT : </h1>
+        <form id="personal-data">
+            <input type="text" placeholder="nama lengkap" id="nama">
+            <input type="number" placeholder="umur" id="umur">
+            <input type="email" placeholder="email" id="email">
+            <input type="password" placeholder="password" id="password">
+        </form>
+        
+        <br>
+        <button onclick="OnButtonSubmit()">SUBMIT</button>
+        <br>
+        <br>
+
+        <!-- RADIO BUTTON / CHECKBOX -->
+        <form id="radio-type">
+            <input type="radio" id="JCWM" name="program" value="JCWM" checked> JCWM
+            <input type="radio" id="JCDS" name="program" value="JCDS"> JCDS
+            <input type="radio" id="JCUIUX" name="program" value="JCUIUX"> JCUIUX
+            <input type="radio" id="JCDM" name="program" value="JCDM"> JCDM
+            <input type="radio" value="BSD">BSD
+            <input type="radio" value="JKT">JKT
+            <input type="radio" value="BKS">BKS
+            <input type="radio" value="BDG">BDG
+        </form>
+        <br>
+        <button onclick="onButtonPilih()">PILIH</button>
+
+
+        <h1>OUTPUT : </h1>
+        <div id="output"></div>
+    </body>
+    <script>
+        // GET VALUE DARI BEBERAPA TYPE INPUT
+        // TYPE : TEXT, EMAIL, NUMBER, PASSWORD, TEL, SEARCH, URL
+        // DATA TYPE VALUE => STRING
+
+        // CARA GET VALUE
+        // dapetin akses dulu ke element input
+        // let input = document.body.getElementsByTagName("input") // HTML Collection []
+        // console.log(input)
+
+        // console.log(input[0].value) // hasilnya kosong karena diawal input masih kosong
+
+        // SOLUSI : ambil imput saat button SUBMIT di diklik
+        // function OnButtonSubmit () {
+        //     // // get value
+        //     // console.log(input[0].value) // nama lengkap
+        //     // console.log(typeof input[0].value)
+
+        //     // console.log(input[1].value) // umur
+        //     // console.log(typeof input[1].value) // string
+
+        //     // console.log(input[2].value) // email
+
+        //     // console.log(input[3].value) // password
+        // }
+
+        // textContent vs innerHTML
+        // console.log(document.body.textContent)
+        // console.log(document.body.innerHTML)
+
+        // SOLUSI part-2 : get value using form
+        let form = document.getElementById("personal-data")
+        console.log(form)
+        function OnButtonSubmit () {
+            // get value
+            console.log(form["nama"].value)
+            // NOTE : dari element form dengan id="personal-data"
+            // akan di cari input dengan id="nama" lalu di ambil valuenya
+            console.log(form["umur"].value)
+            console.log(form["email"].value)
+            console.log(form["password"].value)
+
+            // tampilkan hasil dari input di HTML
+            let output = document.getElementById("output")
+            console.log(output)
+
+            // innerHTML
+            output.innerHTML += `
+            <h3>Nama lengkap : ${form["nama"].value}</h3>
+            <h3>Umur : ${form["umur"].value} tahun</h3>
+            <h3>Email : ${form["email"].value}</h3>
+            `
+        }
+
+        // GET VALUE FROM RADIO BUTTON
+        let formRadio = document.getElementById("radio-type")
+        console.log(formRadio)
+
+        function onButtonPilih () {
+            // get value all value dari radio button
+            console.log(formRadio["JCWM"].value)
+            console.log(formRadio["JCDS"].value)
+            console.log(formRadio["JCUIUX"].value)
+            console.log(formRadio["JCDM"].value)
+
+            // cara dapetin value yang dipilih user?
+            // input type radio/checkbox punya atribut/props namanya checked
+            // sebagai penanda bahwa radio/checkbox sudah dipilih user
+            console.log(formRadio["JCWM"].checked) // .checked => true or false
+
+            let program
+            if (formRadio["JCWM"].checked) {
+                program = formRadio["JCWM"].value
+            } else if (formRadio["JCDS"].checked) {
+                program = formRadio["JCDS"].value
+            } else if (formRadio["JCUIUX"].checked) {
+                program = formRadio["JCUIUX"].value
+            } else if (formRadio["JCDM"].checked) {
+                program = formRadio["JCDM"].value
+            } else {
+                alert("Radio button belom dipilih")
+            }
+
+            console.log("program : ", program)
+
+            // manfaatkan looping
+            let pilihan
+            let input = formRadio.getElementsByTagName("input")
+            console.log(input) // HTML Collection []
+            for (let i = 0; i < input.length; i++) {
+                if (input[i].checked) {
+                    pilihan = input[i].value
+                }
+            }
+            console.log("pilihan : ", pilihan)
+        }
+
+    </script>
+</html>

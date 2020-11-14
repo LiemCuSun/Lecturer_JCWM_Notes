@@ -1,0 +1,11 @@
+tugas untuk latihan
+- input str = "hello dunia" => output => "eouia"
+- input str = "javascript" => output => 3 (hitung huruf vocalnya)
+- input str = "purwadhika" => output => "aadhikpruw" (urutkan berdasrkan a-Z)
+- check palindrom ? input string => output => boolean true or false
+    - palindrom = kata kalau misal dibalik bunyinya tetap sama
+    - "wow" <=> "wow"
+    - "katak" <=> "katak"
+    - "takut" <!=> bukan palindrom
+
+- NOTE : gunakan for/while/do...while

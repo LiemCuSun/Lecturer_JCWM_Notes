@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>QUIZZ</title>
+    </head>
+    <body>
+        <h1>Quizz Sederhana</h1>
+
+        <form id="soal_1">
+            <p>Siapakah nama presiden ketiga Republik Indonseia?</p>
+            <input type="radio" name="jawaban" value="1"> Prof. B.J. Habibie
+            <input type="radio" name="jawaban" value="2"> Abdul Rahman Wahid
+            <input type="radio" name="jawaban" value="3"> Ir. Soekarno
+            <input type="radio" name="jawaban" value="4"> Joko Widodo
+        </form>
+
+        <form id="soal_2">
+            <p>Berikut adalah nama-nama bahasa pemprograman, kecuali</p>
+            <input type="radio" name="jawaban" value="1"> Python
+            <input type="radio" name="jawaban" value="2"> Micro:bit
+            <input type="radio" name="jawaban" value="3"> Javascript
+            <input type="radio" name="jawaban" value="4"> C-Objective
+        </form>
+
+        <br>
+        <button onclick="OnButtonSubmit2()">SUBMIT</button>
+
+        <h1 id="output">Nilai : 0</h1>
+    </body>
+    <script>
+        let kunciJawaban = [1, 2]
+
+        // function OnButtonSubmit () {
+        //     console.log("button submit di klik")
+
+        //     // get value dari input radio button yang dipilih oleh user
+        //     let jawaban = 0, jawaban2 = 0
+
+        //     // aksess dulu ke element <input>
+        //     let soal1 = document.getElementsByName("jawaban_1") // HTML Collection []
+        //     let soal2 = document.getElementsByName("jawaban_2")
+        //     console.log(soal1)
+        //     console.log(soal2)
+
+        //     // get value yang dipilih user
+        //     for (let i = 0; i < soal1.length; i++) {
+        //         if (soal1[i].checked) {
+        //             jawaban = parseInt(soal1[i].value)
+        //         }
+        //         if (soal2[i].checked) {
+        //             jawaban2 = parseInt(soal2[i].value)
+        //         }
+        //     }
+
+        //     console.log(jawaban, jawaban2)
+
+        //     // tampilkan hasil di HTML
+        //     let output = document.getElementById("output")
+        //     output.textContent = `Nilai : ${jawaban + jawaban2}`
+        // }
+
+        // cara ke-2
+        function OnButtonSubmit2 () {
+            console.log("cara ke-2")
+
+            // get access ke form
+            // let form = document.getElementById("soal_1")
+            let forms = document.forms
+            console.log(forms)
+            // saya akan mencari elemen dengan tag <form> di document
+            // => hasil : HTML Collection []
+
+            // get value dari input radio button yang
+            // dipilih oleh user
+            console.log(forms[0].jawaban)
+            console.log(forms[0].jawaban.value)
+            // akan otomatis mencari element dengan name="jawaban_1"
+            // di dalam tag <form> index ke-0
+            // lalu di ambil value => value dari element yang di checked
+            // jika tidak ada element yang di checked => value = ""
+            console.log(forms[1].jawaban.value)
+
+            // compare value dari array jawban dan jawaban dari user
+            let skor = 0
+            for (let i = 0; i < kunciJawaban.length; i++) {
+                if (forms[i].jawaban.value == kunciJawaban[i]) {
+                    skor += 50
+                }
+            }
+            console.log("skor : ", skor)
+
+            // tampilkan hasil di HTML
+            let output = document.getElementById("output")
+            output.textContent = `Nilai : ${skor}`
+
+            // disable input
+            // access semua element input
+            // forms[0].elements // saya akan mencari semua element HTML yang ada di tag <form>
+            let inputs = forms[0].getElementsByTagName("input")
+            console.log(inputs)
+            for (let i = 0; i < inputs.length; i++) {
+                inputs[i].disabled = true
+            }
+
+            console.log(inputs)
+        }
+    </script>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Market v1.1</title>
+    </head>
+    <body></body>
+    <script>
+        // define harga produk
+        let hargaApple = 10000
+        let hargaOrange = 15000
+        let hargaGrape = 20000
+
+        // define stock masing-masing produk
+        let stockApple = 35
+        let stockOrange = 40
+        let stockGrape = 15
+
+        main : while (true) {
+            // define variable untuk menampung input dari user
+            let apple
+            while (true) {
+                apple = parseInt(prompt("Masukan total apple 🍏 yang ingin anda beli!"))        
+                if (apple > stockApple) {
+                    alert("input over stock 🍎")
+                } else if (isNaN(apple)) {
+                    alert("⚠ wrong input.")
+                } else {
+                    break
+                }
+            }
+    
+            let orange
+            while (true) {
+                orange = parseInt(prompt("Masukan total orange 🍊 yang ingin anda beli!"))
+                if (orange > stockOrange) {
+                    alert("input over stock 🍊")
+                } else if (isNaN(orange)) {
+                    alert("⚠ wrong input.")
+                } else {
+                    break
+                }
+            }
+    
+            let grape
+            while (true) {
+                grape = parseInt(prompt("Masukan total grape 🍇 yang ingin anda beli!"))
+                if (grape > stockGrape) {
+                    alert("input over stock 🍇")
+                } else if (isNaN(grape)) {
+                    alert("⚠ wrong input.")
+                } else {
+                    break
+                }
+            }
+    
+            // calculate total
+            let totalBeliApple = apple * hargaApple
+            let totalBeliOrange = orange * hargaOrange
+            let totalBeliGrape = grape * hargaGrape
+            let totalBelanja = totalBeliApple + totalBeliOrange + totalBeliGrape
+    
+            // tampilkan output : detail belanja
+            alert(`
+                Detail belanja
+                Total apple 🍏 : ${apple} buah x ${hargaApple} = ${totalBeliApple}
+                Total orange 🍊 : ${orange} buah x ${hargaOrange} = ${totalBeliOrange}
+                Total grape 🍇 : ${grape} buah x ${hargaGrape} = ${totalBeliGrape}
+                Total Belanja : ${totalBelanja}
+            `)
+
+            // minta user confirmation
+            let confirmation = confirm("Apakah anda ingin belanja lagi?")
+            if (confirmation === false) {
+                break main
+            }
+        }
+    </script>
+</html>

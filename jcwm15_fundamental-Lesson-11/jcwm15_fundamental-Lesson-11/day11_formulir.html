@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Formulir Pendaftaran</title>
+    </head>
+    <body>
+        <h1>Formulir Pendaftaran Angota Baru Banget</h1>
+        <form id="data-diri">
+            <fieldset>
+                <legend>Data Diri</legend>
+                <input type="text" placeholder="nama depan"/>
+                <input type="text" placeholder="nama belakang"/>
+                <input type="number" placeholder="nomor telpone"/>
+                <input type="number" placeholder="anak ke-"/>
+
+                <!-- checkbox -->
+                <br>
+                <input type="radio" name="gender" value="Laki-laki" checked> Laki-Laki
+                <input type="radio" name="gender" value="Perempuan"> Perempuan
+            </fieldset>
+            <fieldset>
+                <legend>Alamat</legend>
+                <input type="text" placeholder="alamat-1"/>
+            </fieldset>
+            <button>SUBMIT</button>
+        </form>
+        <div id="data-diri">
+            <h1>Data Output : </h1>
+        </div>
+    </body>
+    <script>
+        // get all value inside form
+        let form = document.getElementById("data-diri")
+        console.log(form)
+        console.log(form.firstElementChild)
+        let btnSubmit = form.lastElementChild
+        btnSubmit.addEventListener("click", (event) => {
+            event.preventDefault()
+            console.log("Submit on click")
+
+            // get value di data diri
+            let inputDataDiri = form.firstElementChild.getElementsByTagName("input") // [...]
+            console.log(inputDataDiri)
+            
+            // get value
+            console.log(inputDataDiri[0].value)
+            console.log(inputDataDiri[1].value)
+            console.log(inputDataDiri[2].value)
+            console.log(inputDataDiri[3].value)
+
+            // get value from radio button
+            console.log(inputDataDiri[4].value)
+            console.log(inputDataDiri[5].value)
+
+            // get value radio button yang dipilih
+            // checked => radio button sudah di pilih
+            let gender
+            if (inputDataDiri[4].checked) {
+                gender = inputDataDiri[4].value
+            } else {
+                gender = inputDataDiri[5].value
+            }
+            console.log("gender", gender)
+        })
+    </script>
+</html>

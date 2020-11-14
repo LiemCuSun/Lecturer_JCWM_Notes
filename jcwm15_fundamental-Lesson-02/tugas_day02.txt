@@ -1,0 +1,5 @@
+TUGAS day 02 :
+- buat aplikasi untuk minta data diri
+	- nama, usia, hobby, gender,
+	- tampilkan data pake alert
+	- minta confirmasi

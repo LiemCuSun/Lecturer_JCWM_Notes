@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HOME WORK</title>
+    </head>
+    <body>
+        <h1>Kalkulator Sederhana</h1>
+        <form id="input-num">
+            <label for="num-1">Masukan angka 1 :</label>
+            <input type="number" id="num-1">
+            <br>
+            <br>
+            <label for="num-2">Masukan angka 2 : </label>
+            <input type="number" id="num-2">
+        </form>
+        <br>
+        <button>Modulus %</button>
+        <button>Pangkat ^</button>
+
+        <h1 id="output">Output : </h1>
+    </body>
+    <script>
+        // get access to <form> & <h1 id="output"></h1>
+        let form = document.getElementById("input-num")
+        console.log(form)
+
+        let output = document.getElementById("output")
+        console.log(output)
+
+        // add event listener ke button
+        let button = document.body.getElementsByTagName("button") // HTML Collection []
+        console.log(button)
+        
+
+        // modulus
+        button[0].addEventListener("click", () => {
+            console.log("modulus")
+
+            // get input value
+            let num1 = parseInt(form["num-1"].value)
+            let num2= parseInt(form["num-2"].value)
+            console.log(num1)
+            console.log(num2)
+
+            // kalkulasi
+            let hasil = num1 % num2
+            console.log(hasil)
+
+            // tampilkan di HTML
+            output.textContent = `Output : ${num1} % ${num2} = ${hasil}`
+
+            // reset input value
+            form["num-1"].value = ""
+            form["num-2"].value = ""
+        })
+        
+        // pangkat
+        button[1].addEventListener("click", () => {
+            console.log("pangkat")
+            
+            // get input value
+            let num1 = parseInt(form["num-1"].value)
+            let num2= parseInt(form["num-2"].value)
+            console.log(num1)
+            console.log(num2)
+    
+            // kalkulasi
+            let hasil = Math.pow(num1, num2)
+            console.log(hasil)
+    
+            // tampilkan di HTML
+            output.innerHTML = `Output : ${num1} <sup>${num2}</sup> = ${hasil}`
+    
+            // reset input value
+            form["num-1"].value = ""
+            form["num-2"].value = ""
+        })
+    </script>
+</html>

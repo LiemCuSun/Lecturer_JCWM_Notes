@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DOM</title>
+    </head>
+    <body>
+        <h1>Introduction To HTML DOM</h1>
+
+        <!-- ini commnet -->
+        <h1 id="h1-02">Intro</h1>
+        <p>
+            Hello from Pruwadhika, we use 
+            <a href="http://eloquentjavascript.net">this book</a> 
+            as reference
+        </p>
+        <p class="paragraph1">lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
+            lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum </p>
+        <p class="paragraph1">lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
+            lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum </p>
+        <p class="paragraph2">lorem ipsum lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum
+            lorem ipsumlorem ipsumlorem ipsumlorem ipsumlorem ipsum </p>
+    </body>
+    <script>
+        
+        // SEBELUM KITA MEMODIFIKASI STUCTURE/CONTENT/STYLE DI HTML
+        // kita perlu tau element / node mana yang mau kita modif 
+        // => access element/node 
+        // => lewat DOM
+
+        // DOM => DOCUMENT OBJECT MODEL
+        // anggap HTML sebuah document object
+        // DOCUMENT => STUCRTURE =>
+        // HEAD, BODY, FOOTER, etc.
+        // OBJECT => PROPERTIES =>
+        // ??
+
+        // GOAL : Manipulasi (edit stucture, content, styling ) HTML menggunakan DOM
+        // DOM TREE =>
+        // html => head => title => "DOM"
+        //      => body => h1 => "Introduction To HTML DOM"
+        //              => p => "Hello from Pruwadhika, we use"
+        //                   => a => "this book"
+        //                   => "as reference"
+        
+        // HTML AS OBJECT IN JAVASCRIPT
+        // dijavascript untuk mengakses seluruh document html sbg object kita pakai kata kunci document
+        let doc = document // html as object => props/key and value
+        console.log(doc)
+
+        // acces head 
+        let head = document.head
+        console.log(head)
+
+        // access title
+        let title = document.head.title
+        console.log(title)
+
+        // access body
+        let body = document.body
+        console.log(body)
+
+        // acces h1 => 
+        // let h1 = document.body.h1 // undifined
+        // console.log(h1)
+
+        // khusus di body => karena element / node itu bisa duplicate
+        // maka kita tidak bisa langsung gunakan konsep object secara mentah2
+        // let h1 = document.body.h1 x
+
+        // UNTUK DI BODY KITA BISA ACCES ELEMENT DI DALAMNYA DENGAN 2 CARA
+        // #1 NAVIGATION => access element atau node pakai silsilah / DOM TREE
+        // NODE & ELEMENT
+        // jika kita navigasi atau mencoba aksess kedalam document html maka
+        // kita akan mendapatkan nodes html
+        // bedanya nodes dengan html element adalah kalau nodes itu semua yang ada
+        // di html adalah nodes termasuk comment, spasi, enter char, etc. kalau element
+        // hanya yang dibungkus <tag>
+
+        // NAVIGASI LEWAT NODES => firstChild, lastChild, nextSibling, prevSibling
+        let firstChild = document.body.firstChild // #text eneter dari body ke h1
+        let h1 = firstChild.nextSibling // anax sebelahnya => h1
+
+        console.log(h1)
+
+        // get text comment
+        let commnet = document.body.firstChild.nextSibling.nextSibling.nextSibling
+        console.log(commnet)
+
+        // get lastChild
+        let lastChild = document.body.lastChild
+        console.log(lastChild) // script => sript bagian dari nodes di body
+
+        // NAVIGATI LEWAT ELEMENT => 
+        // firstElementChild, lastElementChild, nextELementSibling, prevElementSibling
+        let heading1 = document.body.firstElementChild
+        console.log("h1", heading1)
+
+        let lastElementChild = document.body.lastElementChild
+        console.log("last child", lastElementChild) // <script>
+
+        let paragraph = document.body.firstElementChild.nextElementSibling.nextElementSibling
+        console.log(paragraph)
+
+        // get a
+        let link = paragraph.firstElementChild
+        console.log(link)
+
+        // ACCESS ELEMENT BY SEARCHING => HASIL BERUPA HTML COLLECTIONS
+        // documentsGetBy*
+        
+        // #1 byTagName => h1, p, a, div, span, input, button, etc.
+        // mencari semua element h1 di body
+        let heading = document.body.getElementsByTagName("h1") // HTML COLLECTION => semua element h1 di body
+        console.log("heading", heading)
+
+        // jika ingin mengambil h1 pertama pakai index
+        let heading01 = heading[0]
+        console.log(heading01)
+
+        // NOTE HTML COLLECTION => [...] mirip dengan array tapi tidak sama dengan array
+        // kita bisa aksess element / item di HTML collection lewat index
+        // tapi method .map(), .filter(), ... tidak berlaku untuk HTML collection
+
+        // #2 byClassName => di HTML nama class boleh sama
+        let p = document.body.getElementsByClassName("paragraph1") // HTML Collection
+        console.log(p)
+
+        // #3 byId => di HTML id tidak boleh sama => hasil berupa single element
+        let h1Ke2 = document.getElementById("h1-02") // hasil bukan HTML Collection
+        console.log(h1Ke2)
+
+        </script>
+</html>

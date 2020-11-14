@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML + JS Event</title>
+    </head>
+    <body>
+        <h1>Serius, jangan di klik!</h1>
+        <button onclick="OnButtonClickMe()">CLICK ME</button>
+        <button onclick="OnButtonReset()">RESET</button>
+
+        <button>Zoom Out text</button>
+        <button>Zoom In Text</button>
+
+        <button>Count Me</button>
+
+        <h1 id="count">Count : 0</h1>
+
+        <br>
+        <button>➕</button>
+        <h1 id="num">0</h1>
+        <button>➖</button>
+        
+        <br><br>
+        <button>SHOW</button>
+    </body>
+    <script>
+        // EVENT ? => KEJADIAN, terjadi kapan?
+        // event di dalam konteks ini adalah suatu kejadia yang terjadi 
+        // di dalam halaman website kita yang berhubungan dengan
+        // interaksi user
+
+        // interaksinya ? => click mouser, enter keyboardbutton, scroll, double-click, etc.
+        
+        // berdasarkan event akibat interaksi user => kita akan memberikan suatu feedback
+        // feedback dalam bentuk => perubahan element, content, style, ect.
+
+        // ada dua cara add event
+        // 1# pakai atribut onclick di element
+        // event di buat bersamaan dengan element
+        function OnButtonClickMe () {
+            console.log("Button sudah di click.")
+
+            // access element yang mau di modifikasi
+            let h1 = document.body.firstElementChild
+
+            // modifikasi content
+            h1.textContent = "Sudah dibilang jangan di klik!"
+        }
+
+        function OnButtonReset () {
+            console.log("Button reset di klik")
+
+            // access element yang mau di modifikasi
+            let h1 = document.body.firstElementChild
+
+            // montifikasi content
+            h1.textContent = "Serius, jangan di klik!"
+        }
+
+        // 2# addEventListener() => bikin dulu elemenya baru 
+        // di kasih event
+        let button = document.body.getElementsByTagName("button")
+        // let btnZoomOut = document.body.getElementsByTagName("button")[2]
+        button[2].addEventListener("click", function () {
+            console.log("button zoom out text di klik")
+
+            let h1 = document.body.firstElementChild
+            h1.style.fontSize = "16px"
+        })
+
+        button[3].addEventListener("click", function () {
+            console.log("button zoom in text di klik")
+
+            let h1 = document.body.firstElementChild
+            h1.style.fontSize = "32px"
+        })
+
+        // CASE : hitunglah berapa kali button itu sudah di klik?
+        button[4].addEventListener("click", OnBtnCountMe)
+
+        let count = 0
+        function OnBtnCountMe () {
+            count++
+            console.log(`${count} x click`)
+
+            let h1 = document.getElementById("count") // single element
+            h1.textContent = `Count : ${count}`
+        }
+
+        // CASE : INCREMENT AND DECREMENT
+        let numb = 0
+        let h1 = document.getElementById("num")
+        button[5].addEventListener("click", increment)
+        function increment () {
+            numb ++
+            h1.textContent = `${numb}`
+        }
+
+        // create callback function using arrow function
+        button[6].addEventListener("click", () => {
+            numb --
+            // let h1 = document.getElementById("num")
+            h1.textContent = `${numb}`
+        })
+
+
+        // CASE : update element at give time or interval
+        const WOW = () => {
+            console.log("SHOW")
+            let h1 = document.createElement("h1")
+            h1.textContent = "WOW 😲😲😲."
+
+            document.body.append(h1)
+        }
+        button[7].addEventListener("click", () => setInterval(WOW, 2000))
+
+    </script>
+</html>

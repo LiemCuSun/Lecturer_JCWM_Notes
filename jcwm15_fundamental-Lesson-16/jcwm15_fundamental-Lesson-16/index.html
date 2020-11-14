@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>TABLE</title>
+        <style>
+            table, tr, td, th {
+                border: 1px solid black;
+                border-collapse: collapse;
+            }
+            th, td {
+                padding: 10px;
+            }
+
+            td {
+                text-align: center;
+            }
+            body {
+                background-color: #f5f5f5;
+                padding: 2% 10%;
+            }
+
+            button {
+                padding: 2px 5px;
+            }
+
+            thead {
+                background-color: antiquewhite;
+            }
+
+            input, select {
+                padding: 2px 5px;
+            }
+            
+
+        </style>
+    </head>
+    <body>
+        <!-- <center> -->
+            <h1>Form Produk Baru</h1>
+            <form id="produk-baru">
+                <input type="text" id="nama" placeholder="nama produk">
+                <input type="text" id="img" placeholder="image"> <br><br>
+                <input type="number" id="harga" placeholder="harga">
+                <input type="number" id="stok" placeholder="stok"><br><br>
+                <button onclick="OnButtonAdd(event)">ADD</button>
+            </form>
+
+            <h1>Filter</h1>
+            Sort by Harga
+            <select id="selection">
+                <option value="ASC">ASC</option>
+                <option value="DESC">DESC</option>
+            </select>
+            <button onclick="OnButtonSort()">SORT</button>
+            <br>
+            <br>
+            <input type="search" placeholder="serach by name" id="search">
+            <button onclick="OnButtonSearch()">SEARCH</button>
+            <br>
+
+            <h1>Daftar Produk</h1>
+            <table id="daftar-produk">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Produk</th>
+                        <th>Image</th>
+                        <th>Harga</th>
+                        <th>Stok</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody-produk"></tbody>
+            </table>
+    
+            <h1>User Cart</h1>
+            <table id="user-cart">
+                <thead>
+                    <tr>
+                        <th>No</th>
+                        <th>Produk</th>
+                        <th>Image</th>
+                        <th>Harga</th>
+                        <th>Quantity</th>
+                        <th>Total</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+    
+            <br>
+            <button onclick="OnButtonCetak()" disabled id="cetak">CETAK RECEIPT</button>
+            <br>
+            <p id="receipt">Receipt : </p>
+    
+            <input type="number" placeholder="total uang yang di bayarkan" id="uang" hidden>
+            <button onclick="OnButtonCheckOut()" id="checkout" hidden>CHEKOUT</button>
+        <!-- </center> -->
+    </body>
+    <script src="/database.js"></script>
+    <script src="/produk.js"></script>
+    <script src="/usercart.js"></script>
+    <script src="/transaction.js"></script>
+</html>

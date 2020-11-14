@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>HTML Form</title>
+    </head>
+    <body>
+        <!-- <input type="text" name="input-nama" placeholder="masukan nama anda"/>
+        <input type="email" placeholder="masukan email anda"/>
+        <button>GET VALUE</button> -->
+
+        <form id="form-register">
+            <label for="username">Username : </label>
+            <input type="text" name="username" placeholder="username"/>
+            <br>
+            <label for="email">Email</label>
+            <input type="email" name="email" placeholder="e.x jhon@gmail.com"/>
+            <br>
+            <label for="password">Password</label>
+            <input type="password" name="password" placeholder="password"/>
+
+            <button onclick="OnBtnRegister(event)">REGISTER</button>
+        </form>
+    </body>
+    <script>
+        // FORM
+        // get input value dari user ?
+
+        // #1 add event on input element
+        // let input = document.body.getElementsByTagName("input")
+        // console.log(input)
+        // input[0].addEventListener("change", () => {
+        //     console.log("terjadi perubahan")
+
+        //     console.log(input[0])
+
+        //     // get value from input
+        //     console.log(input[0].value)
+        // })
+
+        // NOTE :
+        // event "change" akan mendeteksi perubahan di element
+        // ketika kita tekan tombol enter maka function akan dijalankan
+
+        // #2 get value setelah button di click
+        // let button = document.body.getElementsByTagName("button")
+        // button[0].addEventListener("click", () => {
+        //     console.log("GET VALUE di klik")
+
+        //     // get input value
+        //     console.log(input[0].value)
+        //     console.log(input[1].value)
+
+        //     document.body.innerHTML += `<h1>Nama : ${input[0].value}</h1><h1>Email : ${input[1].value}</h1>`
+        // })
+
+        // CASE : buat input element => username sama email
+        // get value saat click button
+
+
+        // get value input di dalam form
+        let form = document.getElementById("form-register")
+        let inputForm = form.getElementsByTagName("input") // HTML collection
+        // let btnRegister = form.lastElementChild // <button>
+        // btnRegister.addEventListener("click", (event) => {
+        //     console.log("button register di klik")
+
+        //     // jika button ini diklik maka page akan ke refresh
+        //     // jika button di letakan didalam tag <form>
+        //     // maka input type button menjadi submit => default behaviour => refresh
+
+        //     // jika kita tidak mau menjalankan default behaviour => prevent
+        //     event.preventDefault()
+
+        //     // get semua value input di dalam tag <form>
+        //     console.log(inputForm[0].value)
+        //     console.log(inputForm[1].value)
+        //     console.log(inputForm[2].value)
+        // })
+
+        function OnBtnRegister (event) {
+            event.preventDefault()
+        }
+
+
+    </script>
+</html>

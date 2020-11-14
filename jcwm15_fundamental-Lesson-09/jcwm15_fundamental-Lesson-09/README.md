@@ -1,0 +1,13 @@
+## OUTLINE
+- ECMA Script
+    - ternary operator
+    - arrow function
+    - spread operator
+    - high order function
+    - object destructuring
+- setTimeOut and setInterval
+- HTML
+    - basic element
+- CSS
+    - query selector
+    - simple styling
